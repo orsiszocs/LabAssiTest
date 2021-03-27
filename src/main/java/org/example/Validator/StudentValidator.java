@@ -14,10 +14,6 @@ public class StudentValidator implements IValidator<Student> {
             //throw new ValidatorException("Nume invalid\n");
             errors+="Nume invalid\n";
         }
-        if(s.getGrupa()<=0){
-            //throw new ValidatorException("Grupa invalida\n");
-            errors+="Grupa invalid\n";
-        }
         if(s.getEmail().equals("") || s.getEmail()==null){
             //throw new ValidatorException("Email invalid\n");
             errors+="Email invalid\n";

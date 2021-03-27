@@ -6,7 +6,7 @@ import org.w3c.dom.Element;
 import org.example.Validator.StudentValidator;
 
 
-public class StudentXMLRepo extends AbstractXMLRepo<String, Student> {
+public class StudentXMLRepo extends AbstractXMLRepo<Integer, Student> {
     //private String fileName;
 
     public StudentXMLRepo(StudentValidator v, String fileName) {
@@ -17,9 +17,9 @@ public class StudentXMLRepo extends AbstractXMLRepo<String, Student> {
     protected Element createElementFromEntity(Document document,Student s) {
         Element root = document.getDocumentElement();
         Element e = document.createElement("student");
-        e.appendChild(createElement("id", document, s.getId()));
+        e.appendChild(createElement("id", document, s.getId().toString()));
         e.appendChild(createElement("nume", document, s.getNume()));
-        e.appendChild(createElement("grupa", document, Integer.toString(s.getGrupa())));
+        e.appendChild(createElement("grupa", document, s.getGrupa()));
         e.appendChild(createElement("email", document, s.getEmail()));
         e.appendChild(createElement("profesor", document, s.getIndrumator()));
         return e;
@@ -28,8 +28,8 @@ public class StudentXMLRepo extends AbstractXMLRepo<String, Student> {
 
     @Override
     protected Student createEntityFromElement(Element studentElement){
-        String id=studentElement
-                .getAttribute("id");
+        int id=Integer.parseInt(studentElement
+                .getAttribute("id"));
         String nume=studentElement
                 .getElementsByTagName("nume")
                 .item(0)
@@ -38,7 +38,7 @@ public class StudentXMLRepo extends AbstractXMLRepo<String, Student> {
                 .getElementsByTagName("grupa")
                 .item(0)
                 .getTextContent();
-        int gr=Integer.parseInt(grupa);
+        String gr=grupa;
         String email=studentElement
                 .getElementsByTagName("email")
                 .item(0)

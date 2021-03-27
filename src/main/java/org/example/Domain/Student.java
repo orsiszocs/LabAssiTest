@@ -1,12 +1,12 @@
 package org.example.Domain;
 
-public class Student implements HasId<String> {
-    private  String id;
+public class Student implements HasId<Integer> {
+    private Integer id;
     private  String nume;
-    private int grupa;
+    private String grupa;
     private String email;
     private String indrumator;
-    public Student(String id,String nume,int grupa, String email, String indrumator){
+    public Student(Integer id,String nume,String grupa, String email, String indrumator){
         this.setId(id);
         this.setNume(nume);
         this.setGrupa(grupa);
@@ -14,11 +14,11 @@ public class Student implements HasId<String> {
         this.setIndrumator(indrumator);
     }
     @Override
-    public String getId() {
+    public Integer getId() {
         return id;
     }
     @Override
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public String getNume() {
@@ -27,10 +27,10 @@ public class Student implements HasId<String> {
     public void setNume(String nume) {
         this.nume = nume;
     }
-    public int getGrupa() {
+    public String getGrupa() {
         return grupa;
     }
-    public void setGrupa(int grupa) {
+    public void setGrupa(String grupa) {
         this.grupa = grupa;
     }
     public String getEmail() {
